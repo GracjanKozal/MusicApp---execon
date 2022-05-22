@@ -1,0 +1,32 @@
+body, body::before, body::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.albumList {
+  display: flex;
+  flex-direction: row;
+}
+
+a {
+  font-size: 2rem;
+  color: white;
+  text-decoration: none;
+}
+
+html {
+  font-size: 10px;
+  font-family: $font--default;
+}
+
+h1 {
+  font-size: 3rem;
+  padding-bottom: 3rem;
+}
+
+.edit {
+  font-size: 1.2rem;
+  color: $color--writing-dark;
+  margin-left: -.5rem;
+}

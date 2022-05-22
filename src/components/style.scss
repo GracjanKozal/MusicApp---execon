@@ -1,0 +1,43 @@
+@import '../assets/variables.scss';
+
+.list {
+    background-color: $color--page-lighter;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: $color--writing;
+    width: 80%;
+    position: absolute;
+}
+
+.list-text {
+    padding: 2rem;
+    font-size: 2rem;
+    font-weight: 900;
+}
+
+ul{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.favourite{
+    font-size: 2rem;
+}
+
+li{
+    list-style-type: none;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+li:hover{
+    background-color: aqua;
+}
+
+
+
+
+

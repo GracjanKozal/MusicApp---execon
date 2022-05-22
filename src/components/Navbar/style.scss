@@ -1,0 +1,12 @@
+.app-left {
+  background-color: $color--page;
+  color: $color--writing;
+  padding: 1.5rem;
+  display: block;
+  flex-direction: column;
+}
+
+.btn {
+  font-size: 1.5rem;
+  padding: .8rem;
+}
