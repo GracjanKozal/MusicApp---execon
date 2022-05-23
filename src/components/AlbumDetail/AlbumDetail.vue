@@ -1,24 +1,17 @@
 <template>
   <div class="edit-detail">
-    <h1>Szczegóły Albumu</h1>
-    <h2>Tytuł Albumu</h2>
-    <div v-if="editMode">
+    <h2 class="header-title">Szczegóły Albumu</h2>
+    <p class="album-title">Tytuł Albumu</p>
+    <div v-if="editMode" >
       <div class="edit-title">
         <input type="text" class="edit" v-model.lazy="album.title"/>
       </div>
-      <div class="edit-img">
-        <input class="addAlbums-input_file" type="file" @change="uploadFile">
-      </div>
     </div>
-    <div v-else>
-      {{ album.title }}
+    <div v-else class="edit-title-disabled">
+      <span class="edit-title-inner">{{ album.title }}</span>
     </div>
-    <h2>Zdjęcie Albumu</h2>
-    <img :src="album.thumbnailUrl" :alt="album.title">
-    <button @click="submitFile">Zmień zdjęcie</button>
-    <button class="btn" @click="editMode = !editMode"><i class="icon"
-                                                         :class="{ 'icon-edit': !editMode, 'icon-check': editMode}">Edytuj
-      Szczegóły</i></button>
+
+    <button class="btn" @click="editMode = !editMode">Edytuj Szczegóły</button>
   </div>
 
 </template>
@@ -54,7 +47,8 @@ export default Vue.extend({
 
 </script>
 
-<style>
+<style lang="scss" scoped>
 @import './style.scss';
+@import '../style.scss';
 </style>
 

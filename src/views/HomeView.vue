@@ -1,7 +1,5 @@
 <template>
-    <div class="home">
       <AlbumList />
-    </div>
 </template>
 
 <script lang="ts">
@@ -16,3 +14,4 @@ export default Vue.extend({
     }
 })
 </script>
+

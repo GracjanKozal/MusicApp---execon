@@ -1,24 +1,18 @@
 <template>
-
-  <div class="list">
-    <p class="list-text">Cała biblioteka muzyczna</p>
-    <div class="body-list">
-      <div class="body-list">
-        <div class="toast" v-if="sent" :class="{ 'd-none': !sent }">TEST</div>
+  <div>
+    <h2 class="header-title">Cała biblioteka muzyczna</h2>
+      <div class="list-container">
+        <div class="notice notice-success" v-if="sent" :class="{ 'd-none': !sent }"><span class="alert">Dodano do ulubionych</span></div>
         <ul>
-          <li v-for="(album, index) in $store.state.albums" :key="album.id">
+          <li v-for="(album, index) in $store.state.albums" :key="album.id" class="list-wrapper">
             <router-link :to="'/album/' + album.id">
-              {{ index + 1}} | {{ album.title }}
+              <span class="list-id">{{ index + 1}}</span><span class="list-title">{{ album.title }}</span>
             </router-link>
             <AddToFavouritesButton @addToFavouritesHandler="addToFavourites(album)" v-if="!sent" :class="{ 'd-none': sent }"/>
           </li>
         </ul>
       </div>
-
-    </div>
   </div>
-
-
 </template>
 
 <script lang="ts">

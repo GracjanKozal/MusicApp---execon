@@ -1,8 +1,10 @@
 <template>
   <main>
-    <div class="albumList">
+    <div class="app">
       <Navbar/>
-      <router-view v-slot="{Component}"/>
+      <div class="container">
+        <router-view v-slot="{Component}"/>
+      </div>
     </div>
   </main>
 </template>
@@ -34,7 +36,9 @@ export default Vue.extend({
 <style lang="scss">
 @import './assets/variables';
 @import './main.scss';
-
+@import "./components/style";
+@import "./components/FavouriteList/style";
+@import "./components/AlbumDetail/style";
 </style>
 
 

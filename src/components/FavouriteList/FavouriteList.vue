@@ -1,15 +1,15 @@
 <template>
   <div>
-    <h2>Ulubione</h2>
-    <div class="favourites-wrapper">
+    <h2 class="header-title">Ulubione</h2>
+    <div class="list-container">
+      <div class="notice notice-warning" v-if="sent" :class="{ 'd-none': !sent }"><span class="alert">Usunięto z ulubionych !</span></div>
       <ul v-if="$store.state.favourites">
-        <li v-for="(album) in $store.state.favourites" :key="album.id">{{ album.title }}
-          <button class="removeAdd" @click="removeAlbumFromFavourites(album)" v-if="!sent"
-                  :class="{ 'd-none': sent }">Usuń
-          </button>
+        <li v-for="(album) in $store.state.favourites" :key="album.id" class="list-wrapper"><span class="list-title">{{ album.title }}</span>
+          <div class="list-favourites-icon" @click="removeAlbumFromFavourites(album)" v-if="!sent"
+               :class="{ 'd-none': sent }"><i class="fas fa-thumbs-down"></i>
+          </div>
         </li>
       </ul>
-      <div class="toast" v-if="sent" :class="{ 'd-none': !sent }">TEST</div>
     </div>
   </div>
 </template>
@@ -48,6 +48,7 @@ export default Vue.extend({
 )
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+@import './style.scss';
+@import '../style.scss';
 </style>

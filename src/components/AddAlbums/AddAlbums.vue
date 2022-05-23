@@ -1,21 +1,14 @@
 <template>
-
   <div class="addAlbums">
-    <h1 class="addAlbums-names">Dodaj Album</h1>
-    <form aciton="0">
-      <div class="form-group">
-        <div class="col-1">
-          <label class="addAlbums-form">Nazwa albumu:</label>
-        </div>
-        <div class="col-2">
+    <h2 class="header-title">Dodaj Album</h2>
+      <div class="input-wrapper">
+          <label class="addAlbums-label">Nazwa albumu:</label>
           <input class="addAlbums-input" type="text" placeholder="Podaj nazwę albumu"
                  v-model="albumTitle">
-        </div>
       </div>
       <div class="addAlbums-btn">
         <button class="btn-add" @click.prevent="addNewAlbum">Dodaj !</button>
       </div>
-    </form>
   </div>
 
 
@@ -57,6 +50,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 @import './style.scss';
-
+@import "../style";
 </style>
 

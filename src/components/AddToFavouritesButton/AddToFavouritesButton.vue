@@ -1,5 +1,5 @@
 <template>
-  <div @click="addToFavouritesHandler"><i class="fas fa-heart"></i></div>
+  <div class="list-favourites-icon" @click="addToFavouritesHandler"><i class="fas fa-thumbs-up"></i></div>
 </template>
 
 <script lang="ts">
@@ -25,3 +25,4 @@ export default Vue.extend({
   }
 )
 </script>
+
