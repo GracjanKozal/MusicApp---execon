@@ -20,10 +20,12 @@ const REMOVE_FAVOURITE = (state: any, albumToRemove: IAlbum): void => {
 const ADD_ALBUM = (state: any, newAlbumData: any): void => {
   const newId: number = state.albums.length + 1
   const newAlbum: IAlbum = {
+    albumId: 1,
     id: newId,
-    userId: null,
     title: newAlbumData?.title,
-    image: newAlbumData?.image,
+    url: newAlbumData?.url,
+    thumbnailUrl: newAlbumData?.thumbnailUrl,
+
   }
   state.albums = [...state.albums, newAlbum]
 

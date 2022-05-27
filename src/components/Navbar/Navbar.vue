@@ -25,8 +25,45 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-@import '../../assets/variables.scss';
-@import "style";
+
+
+.navbar {
+  background-color: #262626;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20%;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  .logo {
+    font-size: 2rem;
+  }
+  .link-wrapper {
+    padding-left: 10px;
+    .btn {
+      font-size: 1.5rem;
+      padding: .8rem;
+      width: 15rem;
+      background-color: #262628;
+      border: 1px solid #262626;
+      &:hover {
+        background-color: #4d4d4d;
+      }
+      span {
+        padding-left: 10px;
+        font-family: 'Montserrat', sans-serif;
+      }
+    }
+    .edit-text {
+      font-size: 1.25rem;
+      padding: 10px 10px 0;
+      font-weight: 300;
+    }
+  }
+}
+
 
 
 

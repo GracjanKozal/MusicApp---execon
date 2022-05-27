@@ -1,18 +1,20 @@
 import axios from 'axios'
 
 export interface IAlbum {
+  albumId: number
   id: number
-  userId: number | null
   title: string
-  image: File
+  url: string
+  thumbnailUrl: string
+
 }
 
 const fetchAlbums = ({commit}: {commit: any}) => {
-    const URL = 'https://jsonplaceholder.typicode.com/albums/'
+    const URL = 'https://jsonplaceholder.typicode.com/photos'
 
     axios.get<IAlbum[]>(URL)
         .then((response) => {
-            commit('SET_RESOURCES', response.data)
+            commit('SET_RESOURCES', response.data.slice(0, 10))
         })
 };
 

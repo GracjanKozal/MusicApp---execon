@@ -1,17 +1,16 @@
 <template>
-  <div class="list-favourites-icon" @click="addToFavouritesHandler"><i class="fas fa-thumbs-up"></i></div>
+  <button class="list-favourites-icon" @click="addToFavouritesHandler" :class="{ 'active': isActive }"><i class="fas fa-heart"></i></button>
 </template>
 
 <script lang="ts">
 import Vue from "vue"
 import {mapGetters} from 'vuex'
-import VueRouter from 'vue-router';
-
-Vue.use(VueRouter);
 
 export default Vue.extend({
     name: "AddToFavouriteButton",
-    data: () => ({}),
+    data: () => ({
+      isActive: false,
+    }),
     computed: {
       ...mapGetters([
         "getAlbums"
@@ -20,7 +19,8 @@ export default Vue.extend({
     methods: {
       addToFavouritesHandler(): void {
         this.$emit('addToFavouritesHandler')
-      }
+        this.isActive = !this.isActive;
+      },
     },
   }
 )
