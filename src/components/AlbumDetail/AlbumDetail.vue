@@ -45,7 +45,7 @@ export default Vue.extend({
       return this.getAlbums.find((album: IAlbum) => album?.id === currentId)
     },
     handleAlbumImage(): string {
-      return !this.newImageUrl ? this.album.thumbnailUrl : this.newImageUrl
+      return this.newImageUrl ? this.newImageUrl : this.album.images[0]
     }
   },
   methods: {
