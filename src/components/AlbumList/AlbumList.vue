@@ -6,7 +6,7 @@
         <ul>
           <li v-for="(album, index) in $store.state.albums" :key="album.id" class="list-wrapper">
             <router-link :to="'/album/' + album.id">
-              <span class="list-id">{{ index + 1}}</span><span class="list-title">{{ album.title }}</span>
+              <div><span class="list-id">{{ index + 1}}</span></div><span class="list-title">{{ album.title }}</span>
             </router-link>
             <AddToFavouritesButton @addToFavouritesHandler="addToFavourites(album)"/>
           </li>
@@ -53,62 +53,36 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.list-text {
-  font-size: 2rem;
-  font-weight: 900;
-  padding: 2rem;
-}
-.header-title {
-  font-size: 1.5rem;
-  margin-bottom: 0;
-}
-.list-container {
-  .notice {
-    position: absolute;
-    top: 16px;
-    right: 0;
-    background-color: #ebebeb;
-    padding: 30px;
-    &.notice-success {
-      border-left: 5px solid #178344;
-    }
-    .alert {
-      color: #6c6c6c;
-      font-size: 18px;
-    }
-  }
-}
-ul {
-  padding: 0;
-  .list-wrapper {
-    list-style-type: none;
-    display: flex;
-    padding: 12px 8px;
-    margin: 8px 0;
-    justify-content: space-between;
-    background-color: rgba(64, 64, 64, 0.8);
-    border-radius: 12px;
-    &:hover {
-      background-color: #404040;
-    }
-    .list-id {
-      border-right: 2px solid rgba(191, 191, 191, 0.3);
-      margin-right: 10px;
-      padding: 0 10px;
-      color: rgba(191, 191, 191, 0.3);
-      font-size: 1.5rem;
-    }
-    .list-title {
-      font-size: 1.25rem;
-    }
-    .list-favourites-icon {
-      margin: auto 5px auto 0;
-      font-size: 1.25rem;
+.container {
+  .list-container {
+    ul {
+      .list-wrapper {
+        padding: 0 10px;
+        a {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          padding: 15px 0;
+          div {
+            width: 35px;
+            border-right: 2px solid rgba(191, 191, 191, 0.3);
+            margin-right: 10px;
+            text-align: center;
+          }
+          .list-id {
+            color: rgba(191, 191, 191, 0.3);
+            font-size: 1.5rem;
+          }
+        }
+        .list-favourites-icon {
+          &.active {
+            color: red;
+          }
+        }
+      }
     }
   }
-}
-.active {
-  color: red;
 }
 </style>
 

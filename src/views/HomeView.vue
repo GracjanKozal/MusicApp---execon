@@ -4,11 +4,11 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import AlbumList  from '../components/AlbumList.vue'
+import AlbumList  from '../components/AlbumList/AlbumList.vue'
 
 
 export default Vue.extend({
-    name: 'Home',
+    name: 'HomeView',
     components: {
       AlbumList,
     }

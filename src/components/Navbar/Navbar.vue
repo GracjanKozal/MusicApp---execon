@@ -9,7 +9,7 @@
       <i class="fas fa-heart btn"><span>Ulubione</span></i>
     </router-link>
     <div class="edit-text">Zarządzaj</div>
-    <router-link to="/addalbums">
+    <router-link to="/addalbum">
       <i class="fas fa-plus-circle btn"><span>Dodaj album</span></i>
     </router-link>
     </div>
@@ -26,26 +26,22 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 
-
 .navbar {
   background-color: #262626;
   color: white;
   display: flex;
   flex-direction: column;
-  align-items: center;
   width: 20%;
-  top: 0;
-  left: 0;
-  z-index: 3;
   .logo {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    padding-top: 16px;
+    text-align: center;
   }
   .link-wrapper {
-    padding-left: 10px;
     .btn {
       font-size: 1.5rem;
-      padding: .8rem;
-      width: 15rem;
+      padding: 1rem;
+      width: 100%;
       background-color: #262628;
       border: 1px solid #262626;
       &:hover {
@@ -56,6 +52,9 @@ export default Vue.extend({
         font-family: 'Montserrat', sans-serif;
       }
     }
+    .router-link-exact-active {
+      color: #44e1d1;
+    }
     .edit-text {
       font-size: 1.25rem;
       padding: 10px 10px 0;
@@ -63,8 +62,5 @@ export default Vue.extend({
     }
   }
 }
-
-
-
 
 </style>

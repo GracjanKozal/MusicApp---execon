@@ -1,24 +1,22 @@
 <template>
-  <div class="addAlbums">
+  <div class="addAlbum">
     <h2 class="header-title">Dodaj Album</h2>
-    <AddNewInput @onChange="handleTitle($event)" :title="'Dodaj Tytuł'" :placeholder="'Dodaj tytuł'"/>
-    <!--    <AddNewInput @onChange="handleInputValue" :title="'Dodaj Zdjęcie'" :placeholder="'Dodaj adres url'"/>-->
-    <AddNewInput @onChange="handleInputValue($event, index)"
+    <div class="notice notice-success" v-if="sent"><span class="alert">Dodano nowy album</span></div>
+    <TextInput @onChange="handleTitle($event)" :title="'Dodaj Tytuł'" :placeholder="'Wpisz tytuł'"/>
+    <TextInput @onChange="handleInputValue($event, index)" key="index"
                  :title="'Dodaj Zdjęcie'"
-                 :placeholder="'Dodaj adres url'" v-for="(input, index) in albumImages"></AddNewInput>
-    <div class="add-albums">
-      <div class="addAlbums-btn">
+                 :placeholder="'Wpisz adres url'" v-for="(input, index) in albumImages"></TextInput>
+    <div class="add-album">
+      <div class="addAlbum-btn">
         <button class="btn-add" @click.prevent="addNewInputImage"><i class="fas fa-plus"></i> Dodaj
           kolejne zdjęcie
         </button>
       </div>
-      <div class="addAlbums-btn">
+      <div class="addAlbum-btn">
         <button class="btn-add" @click.prevent="addNewAlbum">Dodaj !</button>
       </div>
     </div>
   </div>
-
-
 </template>
 
 <script lang="ts">
@@ -26,18 +24,18 @@
 import Vue from 'vue'
 import {mapGetters, mapMutations} from "vuex";
 import AddToFavouriteButton from '../AddToFavouritesButton/AddToFavouritesButton.vue';
-import AddNewInput from "@/components/AddNewInput/AddNewInput.vue";
-
+import TextInput from "@/components/TextInput/TextInput.vue";
 
 export default Vue.extend({
-  name: 'Newalbums',
+  name: 'AddAlbum',
   data: () => ({
     albumTitle: '',
     albumImages: [] as string[],
+    sent: false
   }),
   components: {
     AddToFavouriteButton,
-    AddNewInput,
+    TextInput,
   },
   computed: {
     ...mapGetters([
@@ -58,7 +56,14 @@ export default Vue.extend({
       this.albumImages.push('')
     },
     addNewAlbum(): void {
-      this.CREATE_ALBUM({title: this.albumTitle, images: this.albumImages})
+      this.CREATE_ALBUM({title: this.albumTitle, images: this.albumImages}),
+      this.submit()
+    },
+    submit(): void {
+      this.sent = true;
+      setTimeout(() => {
+        this.sent = false;
+      }, 5000);
     }
   }
 })
@@ -66,11 +71,13 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.addAlbums {
-  .header-title {
-    margin-bottom: 30px;
+.addAlbum {
+  .album-title {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 16px;
   }
-
   .input-wrapper {
     label {
       width: 100%;
@@ -106,7 +113,7 @@ export default Vue.extend({
     color: #44e1d1;
   }
 
-  .addAlbums-btn {
+  .addAlbum-btn {
     margin-top: 14px;
   }
 

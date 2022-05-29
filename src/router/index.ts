@@ -17,12 +17,12 @@ const routes = [
   {
     path: '/ulubione',
     name: 'Ulubione',
-    component: () => import('../components/FavouriteList/FavouriteList.vue'),
+    component: () => import('../views/FavouritesView.vue'),
   },
   {
-    path: '/addalbums',
+    path: '/addalbum',
     name: 'Dodaj Album',
-    component: () => import('../components/AddAlbums/AddAlbums.vue'),
+    component: () => import('../views/AddAlbumView.vue'),
   },
 ]
 
